@@ -1,12 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from forms import SequenceForm
 from flask_wtf.csrf import CSRFProtect
+from genetic_split.genetic_split import GeneticSplitter
 
-app = Flask(__name__)
-app.secret_key = 'brunaisanidiot'
-csrf = CSRFProtect(app)
+APP = Flask(__name__)
+APP.secret_key = 'splitrnotsosecretkey'
+CSRF = CSRFProtect(APP)
 
-@app.route("/", methods=["GET"])
+@APP.route("/", methods=["GET"])
 def index():
     '''
     Index page for splitter-ui
@@ -14,13 +15,17 @@ def index():
     form = SequenceForm()
     return render_template("index.html", form=form)
 
-if __name__ == "__main__":
-    app.run()
 
-@app.route("/split/", methods=["GET", "POST"])
+@APP.route("/split/", methods=["POST"])
 def split_sequence():
     '''
     Split spaceless sequence using genetic-split algorithm.
     '''
-    
-    return ""
+    sequence = request.form['sequence']
+    gs = GeneticSplitter(sequence)
+    gs.evolve_population()
+    solution = gs.solution
+    return str(solution)
+
+if __name__ == "__main__":
+    APP.run()
