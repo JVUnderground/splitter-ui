@@ -1,0 +1,14 @@
+<!doctype html>
+<head>
+    <title>SplitterUI</title>
+</head>
+<body>
+    <h1>SplitterUI</h1>
+    <div>
+        <form action="/split/" method="post">
+            {{ form.sequence(placeholder='Write a sequence') }}
+            {{ form.csrf_token }}
+            <input type="submit" value="Split!">
+        </form>
+    </div>
+</body>
