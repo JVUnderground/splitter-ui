@@ -1,1 +1,1 @@
-web: sh 'cd ./splitter-ui && gunicorn --worker-class eventlet -w 1 splitr:APP'
+web: sh -c 'cd ./splitter-ui && gunicorn --worker-class eventlet -w 1 splitr:APP'
