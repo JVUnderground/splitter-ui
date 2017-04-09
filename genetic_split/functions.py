@@ -28,11 +28,12 @@ def score_population(population, dictionary):
 
     score_population will automatically sort the population according to fitness.
     '''
-    for k,individual in enumerate(population):
-        for word in individual.solution:
+    for k, individual in enumerate(population):
+        for j, word in enumerate(individual.solution):
             if word in dictionary:
                 continue
             else:
+                population[k].solution[j] = word.upper()
                 population[k].errors += len(word)
 
 
