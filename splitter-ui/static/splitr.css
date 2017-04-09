@@ -1,0 +1,212 @@
+#header {
+    position: relative;
+    background-color: #d7f000;
+    height: 100px;
+    width: 100%;
+    box-shadow: 0px 5px 3px #C4C4C4;
+    text-align: center;
+    font: 0/0 a;
+    display: inline-block;
+    margin: 0;
+}
+#header-inner {
+    position: absolute;
+    top: 34px;
+    background-color: #b9e200;
+    height: 31px;
+    line-height: 31px;
+    width: 100%;
+    margin: 0;
+}
+.logo {
+    width: 768px;
+    height: 107px;
+    line-height: 107px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: -107px;
+}
+.logo img {
+    float: left;
+    position: relative;
+    z-index: 1000;
+}
+.right-content {
+    height: 31px;
+    width: 768px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 40px;
+    color: #d7f000;
+}
+.right-content div{
+    float: right;
+}
+#content {
+    margin-top: 50px;
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 288px;
+    font-size: 35px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #36ac67
+}
+#input-box {
+    float: left;
+    width: 345px;
+    height: 250px;
+    background-color: white;
+    box-shadow: inset 0px 0px 40px #d5f547;
+}
+#input-box div {
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 200px;
+}
+#result-box {
+    float: right;
+    width: 345px;
+    height: 250px;
+    background-color: white;
+    box-shadow: inset 0px 0px 40px #d5f547;
+}
+#result-box div {
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 200px;
+}
+#submission-box {
+    float: left;
+    width: 345px;
+    height: 38px;
+}
+#submission-box button {
+    float: right;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
+    background-color: #b9e200;
+    color: white;
+    border: 0;
+    margin: 0;
+    width: 180px;
+}
+#submission-box button:hover {
+    color: #36ac67;
+}
+#submission-box button:active {
+    background-color: #d9e200;
+}
+#submission-box div {
+    float: left;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    color: #36ac67;
+}
+#remission-box {
+    float: right;
+    width: 345px;
+    height: 38px;
+}
+#remission-box button {
+    float: right;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
+    background-color: #b9e200;
+    color: white;
+    border: 0;
+    margin: 0;
+    width: 180px;
+}
+#remission-box button:hover {
+    color: #36ac67;
+}
+#remission-box button:active {
+    background-color: #d9e200;
+}
+#remission-box div {
+    float: left;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    color: #36ac67;
+}
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+#footer{
+    position: fixed;
+    bottom: 0;
+    background-color: #d7f000;
+    height: 66px;
+    width: 100%;
+    box-shadow: 0px -5px 3px #C4C4C4;
+    text-align: center;
+    font: 0/0 a;
+    display: inline-block;
+}
+#footer-inner {
+    position: absolute;
+    top: 25px;
+    background-color: #b9e200;
+    height: 20px;
+    width: 100%;
+}
+.footer-logo {
+    width: 768px;
+    height: 57px;
+    line-height: 57px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+.footer-logo img {
+    float: left;
+    position: relative;
+    z-index: 1000;
+    margin-top: 9px;
+}
+.footer-right-content {
+    height: 20px;
+    width: 768px;
+    vertical-align: middle;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    color: #36ac67;
+    margin-right: auto;
+    margin-left: auto;
+}
+.footer-right-content div {
+    float: right;
+    margin: 0;
+}
+.footer-right-content div a {
+    text-decoration: none;
+    color: #36ac67;
+    line-height: 20px;
+}
+.footer-right-content a:hover {
+    color: white;
+}
+#lemon {
+    width: 100%;
+    position: fixed;
+    bottom: 80px;
+}
+#lemon div {
+    width: 111px;
+    margin-right: auto;
+    margin-left: auto;
+}
+body {
+    margin: 0;
+}

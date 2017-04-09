@@ -1,14 +1,46 @@
 <!doctype html>
 <head>
     <title>Splitr</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='split.js' )}}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='splitr.css') }}">
+    
 </head>
 <body>
-    <h1>Splitr</h1>
-    <div>
-        <form action="/split/" method="post">
-            {{ form.sequence(placeholder='Write a sequence') }}
-            {{ form.csrf_token }}
-            <input type="submit" value="Split!">
-        </form>
+    <div id="header">
+        <div id="header-inner">
+            <div class="right-content"><div>WORD ERRORS SOLVED</div></div>
+        </div>
+    </div>
+    <div class="logo"><img src="{{ url_for('static', filename='splitr-logo-menu.png') }}"></div>
+
+    <div id="content">
+        <div id="input-box">
+            <div onkeypress="return (this.innerText.length <= 99)" contenteditable="true">ENTER TEXT</div>
+        </div>
+        <div id="result-box">
+            <div>SPLIT TEXT</div>
+        </div>
+        <div id="submission-box">
+            <div>0/100</div>
+            <button type="button">START SPLITTING</button>
+        </div>
+        <div id="remission-box">
+            <button type="button">STOP SPLITTING</button>
+        </div>
+    </div>
+    <div id="lemon">
+        <div>
+            <img src="/static/lemon.png">
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="footer-inner">
+            <div class="footer-right-content"><div>COPYRIGHT 2017 | <a href="mailto:joao.carneiro@gmail.com">CONTACT</a></div></div>
+        </div>
+        <div class="footer-logo"><img src="{{ url_for('static', filename='splitr-logo-footer.png') }}"></div>
     </div>
 </body>

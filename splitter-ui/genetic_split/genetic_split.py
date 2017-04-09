@@ -2,8 +2,7 @@ import random
 from individual import Individual
 from functions import slice_sequence, score_population, select_mates
 
-
-class GeneticSplitter():
+class GeneticSplitter(object):
     '''
     GeneticSplitter:
     '''
@@ -17,9 +16,11 @@ class GeneticSplitter():
         with open("dictionary.txt") as d:
             dictionary = d.readlines()
 
-        self.dictionary = [x.strip() for x in dictionary]
+        self.dictionary = [x.strip().lower() for x in dictionary]
         self.population = []
         self.create_population()
+        self.stopped = False
+        self.solution = None
 
     def create_population(self):
         '''
@@ -30,27 +31,34 @@ class GeneticSplitter():
             individual = Individual('0'*(self.individual_length - len(genes)) + genes)
             self.population.append(individual)
 
-    def evolve_population(self):
-
-
+    def evolve_population(self, generations):
         '''
         Evolves population towards solution until one of two stopping conditions are met.
         '''
         stuck = 0
         elitist = self.population[0]
-        for _ in xrange(self.NUMBER_GENERATIONS):
+
+        number_generations = 0
+        if generations > 0:
+            number_generations = generations
+        else:
+            number_generations = self.NUMBER_GENERATIONS
+
+        for _ in xrange(number_generations):
             self.population = slice_sequence(self.population, self.sequence)
             self.population = score_population(self.population, self.dictionary)
 
             # Exit conditions.
             # First by perfect match.
             if self.population[-1].errors == 0:
+                self.stopped = True
                 break
 
             # Then by stuck evolution.
             if self.population[-1].errors == elitist.errors/2:
                 stuck += 1
                 if stuck > self.EVOLUTION_STOP:
+                    self.stopped = True
                     break
             else:
                 stuck = 0
@@ -78,5 +86,6 @@ class GeneticSplitter():
             self.population.sort(key=lambda x: x.errors, reverse=True)
             self.population[0] = elitist
 
+        self.population = slice_sequence(self.population, self.sequence)
         self.solution = self.population[-1]
 
