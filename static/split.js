@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var socket = io.connect('http://' + document.domain + ':' + location.port);
+  var socket = io.connect('https://' + document.domain + ':' + location.port);
   var lemons = new Array("/static/lemon.png", "/static/split-lemon.png");
   var count = 0;
   var stop = false;
