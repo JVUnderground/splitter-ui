@@ -1,6 +1,5 @@
 import time
 from flask import Flask, render_template, request
-from forms import SequenceForm
 from flask_wtf.csrf import CSRFProtect
 from flask_socketio import SocketIO, emit
 
@@ -17,8 +16,7 @@ def index():
     '''
     Index page for splitter-ui
     '''
-    form = SequenceForm()
-    return render_template("index.html", form=form)
+    return render_template("index.html")
 
 
 @APP.route("/split/", methods=["POST"])
@@ -27,7 +25,6 @@ def split_sequence():
     Split spaceless sequence using genetic-split algorithm.
     '''
     global SPLITTER
-    sequence = request.form['sequence']
     SPLITTER = GeneticSplitter(sequence)
     SPLITTER.evolve_population(50)
     solution = SPLITTER.solution
