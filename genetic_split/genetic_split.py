@@ -87,5 +87,6 @@ class GeneticSplitter(object):
             self.population[0] = elitist
 
         self.population = slice_sequence(self.population, self.sequence)
+        self.population = score_population(self.population, self.dictionary)
         self.solution = self.population[-1]
 
